@@ -1,16 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Appointments = ()=>{
     const [apps, setApps]=useState([])
 
-    useEffect(async () => {
-        const fetchApps = () => {
-            return fetch('/api/appointments')
-                .then(response => response.json());
-        };
-        let fetchedApps = await fetchApps();
-        setApps(fetchedApps);
+    useEffect( () => {
+        // const fetchApps = async () => {
+        //     return
+             fetch('/api/appointments')
+                .then(response => response.json())
+                .then(apps => setApps({apps}))
+                // };
+        // let fetchedApps = await fetchApps();
+        // setApps(fetchedApps);
     }, []);
+    console.log(apps)
 
     return (
         <div>
