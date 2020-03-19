@@ -13,6 +13,11 @@ const db = mongoose.connection;
 db.on('error', ()=>console.error(error));
 db.once('open', ()=>console.log('connected to db'));
 
+app.use(express.json())
+
+const appointmentsRouter = require('./routes/appointments.js')
+app.use('/appointments', appointmentsRouter)
+
 
 
  app.listen(port, ()=>console.log(`Server started on port ${port}`));
