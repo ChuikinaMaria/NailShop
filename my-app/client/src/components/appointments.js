@@ -8,7 +8,9 @@ const Appointments = ()=>{
         //     return
              fetch('/appointments')
                 .then(response => response.json())
-                .then(apps => setApps({apps}))
+                .then(data => setApps(data))
+                
+                
                 // };
         // let fetchedApps = await fetchApps();
         // setApps(fetchedApps);
@@ -20,11 +22,22 @@ const Appointments = ()=>{
     return (
         <div>
         <p>list of appointments</p>
-        <ul>
-           <li>app#1</li>
-           <li>app#2</li>
-           <li>app#3</li>
-        </ul>
+        <table>
+            <thead>
+                <th>date and time</th>
+                <th>Name</th>
+                <th>phone number</th>
+                <th>product</th>
+            </thead>
+            <tbody>
+            { apps.map((e,i) => <tr key={i}>
+                    <td>{e.dateTime}</td>
+                    <td>{e.firstName} {e.secondName}</td>
+                    <td>{e.phoneNumber}</td>
+                    <td>{e.product}</td>
+                </tr>)}
+                </tbody>
+                </table>                 
         </div>
     )
 };
