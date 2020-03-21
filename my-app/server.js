@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose")
+const path = require("path")
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,9 +17,15 @@ db.once('open', ()=>console.log('connected to db'));
 app.use(express.json())
 
 const appointmentsRouter = require('./routes/appointments.js')
-app.use('/appointments', appointmentsRouter)
+app.use('/api/appointments', appointmentsRouter)
 
+if (process.env.NODE_ENV==='production'){
+    app.use(express.static('client/build'))
 
+    app.get('*', (res, req) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
  app.listen(port, ()=>console.log(`Server started on port ${port}`));
 

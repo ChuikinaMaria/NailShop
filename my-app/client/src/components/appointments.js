@@ -4,21 +4,12 @@ const Appointments = ()=>{
     const [apps, setApps]=useState([])
 
     useEffect( () => {
-        // const fetchApps = async () => {
-        //     return
-             fetch('/appointments')
-                .then(response => response.json())
-                .then(data => setApps(data))
-                
-                
-                // };
-        // let fetchedApps = await fetchApps();
-        // setApps(fetchedApps);
+        fetch('/appointments')
+            .then(response => response.json())
+            .then(data => setApps(data))
     }, []);
     console.log(apps)
-
-    
-    
+   
     return (
         <div>
         <p>list of appointments</p>
