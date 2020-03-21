@@ -6,7 +6,7 @@ const Appointments = ()=>{
     useEffect( () => {
         // const fetchApps = async () => {
         //     return
-             fetch('/api/appointments')
+             fetch('/appointments')
                 .then(response => response.json())
                 .then(apps => setApps({apps}))
                 // };
@@ -15,13 +15,15 @@ const Appointments = ()=>{
     }, []);
     console.log(apps)
 
+    
+    
     return (
         <div>
         <p>list of appointments</p>
         <ul>
-            <li>app#1</li>
-            <li>app#2</li>
-            <li>app#3</li>
+           <li>app#1</li>
+           <li>app#2</li>
+           <li>app#3</li>
         </ul>
         </div>
     )

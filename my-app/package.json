@@ -4,19 +4,19 @@
   "description": "server side for nailshop",
   "main": "server.js",
   "scripts": {
-    "client": "cd client && yarn start",
+    "client": "cd client && npm start",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.5"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.2"
   }

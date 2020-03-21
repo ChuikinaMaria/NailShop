@@ -1,12 +1,12 @@
-get http://localhost:3457/appointments
+get http://localhost:5000/appointments
 
 ###
 
-get http://localhost:3457/appointments/5e7355a17bb4885158d16c05
+get http://localhost:5000/appointments/5e7355a17bb4885158d16c05
 
 ###
 
-post http://localhost:3457/appointments
+post http://localhost:5000/appointments
 Content-Type: application/json
 
 {"dateTime": "2020-03-25T12:00:00Z", "firstName": "Peppa", "secondName": "Pig", "phoneNumber": "5678901234", "product": "Shellac"}
