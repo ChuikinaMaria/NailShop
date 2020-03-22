@@ -4,86 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nailshp-static html</title>
-    <link rel="stylesheet" href="style.css">
+  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carussel.css">
     <link href="../addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
-  <header class="header">
-
-     <!--  nav -->
-     <nav>
-    <ul class="nav navbar-nav mr-auto">
-      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Service</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-      <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
-      </li>
-    </ul>
-  </nav>
-
-  </header>
-
-  <img class="logo" src="/img/logo-1.png" alt="Flowers in Chania">
-
-  <div class="back-img">
-    
-  </div>
-    
-          <!--Search bar form input-->
-          <div class="container-search">
-            <div class="row">
-                  <div class="search">
-          <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" />
-           <button type="submit" class="btn btn-primary btn-sm">Search</button>
+  
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="padding:0;margin-right:20px"><img class="logo" src="./img/logo-1 (1).png" alt="Flowers in Chania" height="50px;"></a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contaxt us</a></li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
           </div>
-            </div>
-          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><button href="#" class="btn btn-primary" style="padding-top: 15px;
+            padding-bottom: 15px;" data-toggle="modal" data-target="#myModal">Book an appointment</button>
+        </ul>
+      </div>
+
       
-          <!--portfolio gallary-->
-          <div class="container">
-            <div class="row">
-              <div class="row">
-                  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                      <img class="img-thumbnail" src="/img/acryl-1.jpeg" alt="Flowers Chania">
-                      </a>
-                </div>
-
-                  <div class="container">
-                    <div class="row">
-                      <div class="row">
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <img class="img-thumbnail" src="/img/nail-art2.jpeg" alt="Flowers Chania">
-                              </a>
-                          </div>
-
-                          <div class="container">
-                            <div class="row">
-                              <div class="row">
-                                  <div class="col-lg-3 col-md-4 col-xs-4 thumb">
-                                      <img class="img-thumbnail" src="/img/nail-art5.jpeg" alt="Flowers Chania">
-                                      </a>
-                                  </div>
-
-
-                                  <div class="container">
-                                    <div class="row">
-                                      <div class="row">
-                                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                              <img class="img-thumbnail" src="/img/nail-art-4.jpeg" alt="Flowers Chania">
-                                              </a>
-                                          </div>
-                  
-
-          
           <!--Book an appointment button-->
           <div class="container">
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Book an appointment</button>
-          
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
@@ -130,7 +96,83 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
                   </div>
-                </section>   
-</body>
+                </section> 
 
+
+      <!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img class="second-slide" src="https://media-public.canva.com/MADGx8i6Q1k/4/screen_2x.jpg" alt="Second slide">
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+     <!--portfolio gallary-->
+<div class="container">
+<div class="row">
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="height: 30px;">
+  <img class="img-thumbnail" src="./img/acryl-1.jpeg" alt="Flowers Chania" style="height:365px;">
+  </a>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="row">
+<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+  <img class="img-thumbnail" src="./img/nail-art2.jpeg" alt="Flowers Chania" style="height:365px;">
+  </a>
+    </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="row">
+      <div class="col-lg-3 col-md-4 col-xs-4 thumb">
+          <img class="img-thumbnail" src="./img/nail-art5.jpeg" alt="Flowers Chania" style="height:365px;">
+          </a>
+          </div>
+        <div class="container">
+          <div class="row">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <img class="img-thumbnail" src="./img/nail-art-4.jpeg" alt="Flowers Chania" style="height:365px;">
+                    </a>
+                </div>
+
+                <!--Social media icon-->
+                  
+
+<!-- Footer -->
+<footer>
+  <div class="footer">
+    <div class="fqa">
+    <a href="fqa-page.html">FQA</a > 
+    </div>
+      <div class="adress-info"> 
+        <p>&copy; Nailshop 2020<p></p>
+      </div>
+
+      <div>
+        <a href="#" class="fb-headline">Connect to our Facebook Page</a>
+        <a href="#" class="fa fa-facebook">Fcebook</a>
+      </div>
+
+    
+  </div>
+</footer>
+</body>
 </html>
