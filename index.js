@@ -10,6 +10,7 @@ const api = require('./api');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json())
 
 app.use((req, res, next) => {
   console.log(req.method + ': ' + req.path);
