@@ -1,0 +1,19 @@
+{
+  "name": "nailshop",
+  "version": "1.0.0",
+  "description": "application for making appointments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChuikinaMaria/NailShop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChuikinaMaria/NailShop/issues"
+  },
+  "homepage": "https://github.com/ChuikinaMaria/NailShop#readme"
+}

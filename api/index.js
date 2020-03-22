@@ -1,10 +1,18 @@
+// const express = require('express');
+// const router = express.Router();
+
+// router.get('/', (req, res) => {
+//   res.send({ wow: 'it works' });
+// });
+
+// module.exports = router;
+
+
+
 require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose")
-const path = require("path")
-
-const app = express();
-const port = process.env.PORT || 5000;
+const router = express.Router();
 
 mongoose.connect((process.env.DATABASE_URI), { 
     useNewUrlParser: true,
@@ -14,20 +22,20 @@ const db = mongoose.connection;
 db.on('error', ()=>console.error(error));
 db.once('open', ()=>console.log('connected to db'));
 
-app.use(express.json())
-
 const appointmentsRouter = require('./routes/appointments.js')
 app.use('/api/appointments', appointmentsRouter)
 
-if (process.env.NODE_ENV==='production'){
-    app.use(express.static('client/build'))
+module.exports = router;
 
-    app.get('*', (res, req) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    })
-}
+// if (process.env.NODE_ENV==='production'){
+//     app.use(express.static('client/build'))
 
- app.listen(port, ()=>console.log(`Server started on port ${port}`));
+//     app.get('*', (res, req) => {
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//     })
+// }
+
+//  app.listen(port, ()=>console.log(`Server started on port ${port}`));
 
     
 
