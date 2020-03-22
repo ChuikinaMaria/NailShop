@@ -6,7 +6,8 @@
     "dev-client": "cd client && npm run start",
     "start": "node index.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "devServer": "nodemon devServer.js"
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run dev-client\""
   },
   "license": "MIT",
   "dependencies": {
@@ -15,6 +16,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.2"
   }
 }
