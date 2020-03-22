@@ -14,7 +14,7 @@ const express = require("express");
 const mongoose = require("mongoose")
 const router = express.Router();
 
-mongoose.connect((process.env.DATABASE_URI), { 
+mongoose.connect(('mongodb+srv://admin:12345@nailshop-cgjdz.gcp.mongodb.net/test?retryWrites=true&w=majority'), { 
     useNewUrlParser: true,
     useUnifiedTopology: true });
 
@@ -22,8 +22,8 @@ const db = mongoose.connection;
 db.on('error', ()=>console.error(error));
 db.once('open', ()=>console.log('connected to db'));
 
-const appointmentsRouter = require('./routes/appointments.js')
-app.use('/api/appointments', appointmentsRouter)
+// const appointmentsRouter = require('./routes/appointments.js')
+// app.use('/api/appointments', appointmentsRouter)
 
 module.exports = router;
 

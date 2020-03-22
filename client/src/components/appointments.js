@@ -4,7 +4,7 @@ const Appointments = ()=>{
     const [apps, setApps]=useState([])
 
     useEffect( () => {
-        fetch('/appointments')
+        fetch('/api/appointments')
             .then(response => response.json())
             .then(data => setApps(data))
     }, []);
@@ -15,10 +15,12 @@ const Appointments = ()=>{
         <p>list of appointments</p>
         <table>
             <thead>
+            <tr>
                 <th>date and time</th>
                 <th>Name</th>
                 <th>phone number</th>
                 <th>product</th>
+            </tr>
             </thead>
             <tbody>
             { apps.map((e,i) => <tr key={i}>
