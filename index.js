@@ -6,6 +6,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const api = require('./api');
+const appointmentsRouter = require('./api/routes/appointments.js')
 
 const app = express();
 app.use(cors());
@@ -24,8 +25,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', api);
-
-const appointmentsRouter = require('./api/routes/appointments.js')
 app.use('/api/appointments', appointmentsRouter)
 
 const port = process.env.PORT || 5000;
