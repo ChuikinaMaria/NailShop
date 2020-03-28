@@ -7,7 +7,9 @@
     "start": "node index.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "server": "nodemon index.js",
-    "dev": "concurrently \"npm run server\" \"npm run dev-client\""
+    "dev": "concurrently \"npm run server\" \"npm run dev-client\"",
+    "test": "cd api && jest --collectCoverage=true --forceExit",
+    "test:watch": "cd api && jest --watch --collectCoverage=true --runInBand --detectOpenHandles"
   },
   "license": "MIT",
   "dependencies": {
@@ -19,6 +21,8 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
-    "nodemon": "^2.0.2"
+    "jest": "^25.2.3",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   }
 }
