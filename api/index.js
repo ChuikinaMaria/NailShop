@@ -1,9 +1,9 @@
-//require('dotenv').config()
+require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose")
 const router = express.Router();
 
-mongoose.connect(('mongodb+srv://admin:12345@nailshop-cgjdz.gcp.mongodb.net/test?retryWrites=true&w=majority'), { 
+mongoose.connect((process.env.MONGO_URI), { 
     useNewUrlParser: true,
     useUnifiedTopology: true });
 

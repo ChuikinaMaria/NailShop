@@ -1,6 +1,6 @@
 // this is the main entry point for your full app
 // it serves your frontend & provides access to your API
-
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');

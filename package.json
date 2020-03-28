@@ -1,5 +1,5 @@
 {
-  "name": "cooool",
+  "name": "Nailshop",
   "version": "1.0.0",
   "scripts": {
     "dev-api": "nodemon api/dev.js",

@@ -12,10 +12,18 @@ router.get('/', async (req, res)=>{
     }
     })
 //getting one
-router.get('/:id', (req, res)=>{
-    res.send(req.params.id)
+router.get('/:phoneNumber', async (req, res)=>{
+    //const phoneNumber = req.params.id
+    try {
+        const appointment = await Appointment.find( {phoneNumber: req.params.phoneNumber})
+        res.json(appointment)
+    } catch (e) {
+        res.status(500).json({message: e.message})
+    }
+    });
 
-})
+// get by date
+
 //creating one
 router.post('/', async (req, res)=>{
     const appointment = new Appointment ({
