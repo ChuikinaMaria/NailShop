@@ -2,6 +2,15 @@ const express = require('express')
 const router = express.Router()
 const Appointment = require('../models/appointment')
 
+
+/**
+* Just a simple test endpoint to demo how to test with Jest
+**/
+router.get('/test', async (req, res) => {
+  res.json({ message: 'pass!' })
+})
+
+
 //getting all
 router.get('/', async (req, res)=>{
     try {
