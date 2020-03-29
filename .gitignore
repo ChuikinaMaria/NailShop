@@ -1,3 +1,5 @@
 node_modules
 coverage/
-.env
+
+# `.env` is versionied for the moment 
+# .env
