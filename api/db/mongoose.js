@@ -1,18 +1,13 @@
-const mongoose = require("mongoose");
-const path = require('path');
-require('dotenv').config({path: path.resolve(process.cwd(), 'api','config', '.env'), debug: true});
+require('dotenv').config()
+const mongoose = require("mongoose")
 
-const uri = `mongodb+srv://HYF:${process.env.MONGODB_PSWD}@cluster0-by0o2.mongodb.net/test?retryWrites=true&w=majority`
-// mongodb://127.0.0.1:27017/NailShop
-    mongoose.connect(uri, {
-    useNewUrlParser:true,
-    useUnifiedTopology: true,
-    useFindAndModify:false,
-    useCreateIndex: true // --> this allow as to access data quickly
-  });
+mongoose.connect((process.env.MONGO_URI), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true });
 
-  const connection = mongoose.connection;
+const db = mongoose.connection;
+db.on('error', (ev) => console.error(ev));
+db.once('open', () => console.log('connected to db'));
 
-  connection.once('open', ()=>{
-      console.log("MongoDB database connection established successfully!")
-  })
+module.exports = mongoose.connection;
+

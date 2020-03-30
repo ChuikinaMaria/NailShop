@@ -1,3 +1,8 @@
 node_modules
 coverage/
 
+<<<<<<< HEAD
+=======
+# `.env` is versionied for the moment 
+# .env
+>>>>>>> c10470090c93719fa835ba06d4777c55a7edf903
