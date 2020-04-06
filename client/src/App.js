@@ -8,7 +8,7 @@ function App() {
     <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Make an appoitment!
+          Make an appointment!
         </p>
             
       <Appointments />
