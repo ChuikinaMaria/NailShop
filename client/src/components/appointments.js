@@ -4,7 +4,7 @@ const Appointments = ()=>{
     const [apps, setApps]=useState([])
 
     useEffect( () => {
-        fetch('/api/appointments')
+        fetch('/api/routes/appointments')
             .then(response => response.json())
             .then(data => setApps(data))
     }, []);
