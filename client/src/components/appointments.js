@@ -4,7 +4,7 @@ const Appointments = ()=>{
     const [apps, setApps]=useState([])
 
     useEffect( () => {
-        fetch('https://nailshop.herokuapp.com/api/routes/appoinments')
+        fetch('https://nailshop.herokuapp.com/api/routes/appointments')
             .then(response => response.json())
             .then(data => setApps(data))
     }, []);
