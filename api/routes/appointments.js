@@ -1,65 +1,55 @@
-const express = require('express')
-const router = express.Router()
-const Appointment = require('../models/appointment')
+const express = require('express');
 
+const router = express.Router();
 
-/**
-* Just a simple test endpoint to demo how to test with Jest
-**/
-router.get('/test', async (req, res) => {
-  res.json({ message: 'pass!' })
-})
+const Appointment = require('../models/Appointment');
 
+require('dotenv').config();
 
-//getting all
-router.get('/', async (req, res)=>{
-    try {
-        const appointments = await Appointment.find()
-        res.json(appointments)
-    } catch (e) {
-        res.status(500).json({message: e.message})
-    }
-    })
-//getting one
-router.get('/:phoneNumber', async (req, res)=>{
-    //const phoneNumber = req.params.id
-    try {
-        const appointment = await Appointment.find( {phoneNumber: req.params.phoneNumber})
-        res.json(appointment)
-    } catch (e) {
-        res.status(500).json({message: e.message})
-    }
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+
+const client = require('twilio')(accountSid, authToken);
+
+// Routes
+
+// To Get All Appointments
+router.get('/', async (req, res) => {
+  try {
+    const appointments = await Appointment.find();
+    res.json(appointments);
+  } catch (err) {
+    res.json({
+      message: err,
     });
+  }
+});
 
-// get by date
-
-//creating one
-router.post('/', async (req, res)=>{
-    const appointment = new Appointment ({
-        phoneNumber: req.body.phoneNumber,
-        firstName:  req.body.firstName,
-        secondName:  req.body.secondName,
-        email:  req.body.email,
-        dateTime:  req.body.dateTime,
-        product:  req.body.product
+// To Post An Appointment
+router.post('/', async (req, res) => {
+  const appointment = new Appointment({
+    name: req.body.name,
+    phone: req.body.phone,
+    email: req.body.email,
+    city: req.body.city,
+    service: req.body.service,
+    aptdate: req.body.aptdate,
+    apttime: req.body.apttime,
+    about: req.body.about,
+  });
+  client.messages
+    .create({
+      to: `${req.body.phone}`,
+      from: ' +12034968991',
+      body: `Your appointment has been received for ${req.body.service} scheduled for ${req.body.aptdate} at ${req.body.apttime} . See you soon!`,
     })
-    try {
-       const newAppointment = await appointment.save()
-       res.status(201).json(newAppointment)
+    .then();
+  try {
+    const newAppointment = await appointment.save();
+    res.json(newAppointment);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
 
-    } catch (e) {
-        res.status(400).json({ message: e.message})
-
-    }
-
-})
-//upgrading one
-router.patch('/:id', (req, res)=>{
-
-})
-//deleting one
-router.delete('/:id', (req, res)=>{
-
-})
-
-module.exports = router
+module.exports = router;
